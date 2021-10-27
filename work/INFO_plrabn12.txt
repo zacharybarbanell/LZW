@@ -1,0 +1,5 @@
+original filesize : 481861 bytes
+final filesize : 189839 bytes
+compression ratio : 60.60295396390245%
+compression time : 2568249ms
+decompression time : 2529610ms
