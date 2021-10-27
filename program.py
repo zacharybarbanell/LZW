@@ -192,6 +192,6 @@ def test(name):
 
 if __name__ == "__main__":
     if len(sys.argv) == 2: 
-        eval(sys.argv[1]) #lazy solution but it works
+        test(sys.argv[1])
         
             
