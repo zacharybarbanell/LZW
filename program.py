@@ -4,9 +4,6 @@ import time
 binary_symbols = ['0', '1']
 ascii_symbols = [chr(x) for x in range(256)] 
 
-with open('canterbury-corpus-master/canterbury/alice29.txt') as f:
-    mystring = f.read()
-
 def bytes_to_binary(gen): #converts a stream of characters to a stream of binary
     for character in gen:
         bits = '{:0>8}'.format(format(character, 'b')) 
@@ -144,7 +141,7 @@ def unpadbitstring(s):
     s = s[:-1]
     return s
 
-def encode(source, target, info):
+def encode(source, target, info): #encodes source file to target file putting statistics in info
     with open(source, 'rb') as f:
         sourcetext = f.read()
     sourcetext = ''.join(chr(b) for b in sourcetext) #strings and bytes are different and I hate it 
@@ -164,7 +161,7 @@ def encode(source, target, info):
     with open(info, 'w') as f3:
         f3.write(infostring)
 
-def decode(source, target, info):
+def decode(source, target, info): #decodes source file to target file putting statistics in info
     with open(source, 'rb') as f:
         sourcetext = f.read()
     starttime = time.time_ns()
@@ -179,7 +176,7 @@ def decode(source, target, info):
     with open(info, 'a') as f3:
         f3.write(infostring)
 
-def test(name):
+def test(name): #encodes and decodes a file, combining the statistics
     s1 = 'original/' + name
     t1 = 'work/ENCODED_' + name
     i1 = 'work/INFO_' + name
